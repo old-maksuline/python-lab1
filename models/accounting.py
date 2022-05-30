@@ -19,5 +19,7 @@ class Accounting:
     def print_orders(self):
         for key, value in self.orders.items():
             if value:
+                print("%s: {" % key)
                 for val in value:
-                    print(f"{key}: {val.__str__()}")
+                    print(val)
+                print('}')
