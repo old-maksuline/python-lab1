@@ -1,10 +1,10 @@
-from models.order_in_mall import Order, Status
+from abc import ABC, abstractmethod
 
 
-class Product(Order):
-    def __init__(self, customer_id: int, product_id: int, order_id: int, order_status: Status, product: str):
-        super().__init__(customer_id, product_id, order_id, order_status)
-        self.product = product
+class Product(ABC):
+    def __init__(self, product_id: int):
+        self.product_id = product_id
 
+    @abstractmethod
     def __str__(self):
-        return super().__str__() + f", product: {self.product}"
+        return f"Prod id: {self.product_id}, "
